@@ -17,9 +17,9 @@ import {
 } from 'react-native';
 import { NativeRouter, Route, Link } from "react-router-native";
 import ContactUs from './src/ContactUs/ContactUs'
-import Home from './src/Home/Home.js'
+// import Home from './src/Home/Home.js'
 import {
-  Header,
+  // Header,
   LearnMoreLinks,
   Colors,
   DebugInstructions,
@@ -27,26 +27,33 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import AboutUs from './src/AboutUs/AboutUs'
 import Cenima from './src/Pages/Cenima/Cenima'
+import Header from './src/Common/Header/Header'
+import Home from './src/Pages/Home/'
+import Fotter from './src/Common/Fotter/Fotter'
+
 const App: () => React$Node = () => {
   return (
     <>
+      <Header />
       <NativeRouter>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}>
+          <StatusBar backgroundColor="#20232a" barStyle="light-content" />
+          <SafeAreaView>
 
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={AboutUs} />
             <Route path="/contact" component={ContactUs} />
             <Route path="/cenima" component={Cenima} />
             {/* <Home /> */}
-           
-          </ScrollView>
 
-        </SafeAreaView>
+
+          </SafeAreaView>
+        </ScrollView>
+
       </NativeRouter>
+      {/* <Fotter/> */}
     </>
   );
 };
